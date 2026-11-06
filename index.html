@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girginler Sürücü Kursu | Ankara Sincan Ehliyet & İş Makineleri Kursu</title>
+  <meta name="description" content="Özel Genç Girginler Sürücü Kursu Sincan Ankara. A, B, C, CE, D, G sınıfı ehliyetler, simülatörlü eğitim, %98 ilk seferde sınav başarısı. 3D İnteraktif T.C. Ehliyet Deneyimi.">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#facc15',
+              green: '#22c55e',
+              red: '#ef4444',
+              gold: '#eab308',
+              emerald: '#16a34a',
+              crimson: '#dc2626',
+              black: '#000000',
+              carbon: '#0c0c0c'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Three.js (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Confetti.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.6.0/confetti.browser.min.js"></script>
+</head>
+<body class="bg-black text-slate-100 antialiased selection:bg-yellow-400 selection:text-black">
+
+  <!-- Ambient Glow Spots on Pitch Black (Yellow, Green, Red) -->
+  <div class="bg-glow-spot bg-yellow-500 top-0 left-1/4"></div>
+  <div class="bg-glow-spot bg-green-500 top-96 right-10"></div>
+  <div class="bg-glow-spot bg-red-600 bottom-1/3 left-10"></div>
+
+  <!-- Top Announcement Bar (Black + Red/Yellow/Green Highlights) -->
+  <div class="bg-black border-b border-yellow-500/20 text-xs py-2 px-4 text-center">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-3">
+        <span class="bg-green-950/80 text-green-400 font-bold px-2.5 py-0.5 rounded-full border border-green-500/40 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          MEB Ruhsatlı Resmi Kurum
+        </span>
+        <span class="text-slate-300">Ankara Sincan'ın En Çok Tavsiye Edilen Sürücü Kursu</span>
+      </div>
+      <div class="flex items-center gap-5 text-slate-300">
+        <a href="tel:03122704262" class="hover:text-yellow-400 transition-colors flex items-center gap-1.5">
+          <i class="fas fa-phone-alt text-yellow-400"></i> (0312) 270 42 62
+        </a>
+        <a href="https://wa.me/905059090955" target="_blank" class="hover:text-green-400 transition-colors flex items-center gap-1.5">
+          <i class="fab fa-whatsapp text-green-400"></i> 0505 909 09 55
+        </a>
+        <span class="hidden md:inline text-slate-400">
+          <i class="fas fa-map-marker-alt text-red-500 mr-1"></i> Atatürk Mah. Sincan / ANKARA
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <nav id="main-nav" class="sticky top-0 z-40 w-full glass-nav transition-all duration-300 py-3.5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      
+      <!-- Logo with Yellow & Red Highlights -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-yellow-500 via-red-600 to-green-600 p-[2px] shadow-lg shadow-yellow-500/20 group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+            <i class="fas fa-id-card text-yellow-400 text-xl"></i>
+          </div>
+        </div>
+        <div>
+          <span class="font-black text-xl tracking-tight text-white block leading-none">
+            GİRGİNLER
+          </span>
+          <span class="text-[10px] font-bold tracking-widest text-gradient-traffic uppercase">
+            Sürücü & İş Makineleri Kursu
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-300">
+        <a href="#hero" class="hover:text-yellow-400 transition-colors">3D Deneyim</a>
+        <a href="#classes" class="hover:text-green-400 transition-colors">Ehliyet Sınıfları</a>
+        <a href="#customizer" class="hover:text-yellow-400 transition-colors">Kartını Tasarla</a>
+        <a href="#calculator" class="hover:text-green-400 transition-colors">Fiyat Hesapla</a>
+        <a href="#features" class="hover:text-yellow-400 transition-colors">Neden Girginler?</a>
+        <a href="#faq" class="hover:text-red-400 transition-colors">S.S.S.</a>
+        <a href="#contact" class="hover:text-yellow-400 transition-colors">İletişim</a>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://wa.me/905059090955?text=Merhaba,%20ehliyet%20kaydı%20hakkında%20bilgi%20almak%20istiyorum." 
+           target="_blank"
+           class="px-3.5 py-2 rounded-xl bg-green-950/60 hover:bg-green-900/60 text-green-400 border border-green-500/40 text-xs font-bold flex items-center gap-2 transition-all">
+          <i class="fab fa-whatsapp text-sm"></i> WhatsApp
+        </a>
+        <button class="btn-open-modal px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 hover:opacity-95 text-black font-extrabold text-xs shadow-lg shadow-yellow-500/20 transition-all flex items-center gap-2">
+          <span>Hemen Kaydol</span>
+          <i class="fas fa-arrow-right text-[10px]"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-yellow-400 hover:text-white" aria-label="Menüyü Aç">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden px-4 pt-3 pb-6 bg-black border-b border-yellow-500/30 space-y-3">
+      <a href="#hero" class="block text-slate-200 py-1.5 font-medium hover:text-yellow-400">3D Deneyim</a>
+      <a href="#classes" class="block text-slate-200 py-1.5 font-medium hover:text-green-400">Ehliyet Sınıfları</a>
+      <a href="#customizer" class="block text-slate-200 py-1.5 font-medium hover:text-yellow-400">Kartını Tasarla</a>
+      <a href="#calculator" class="block text-slate-200 py-1.5 font-medium hover:text-green-400">Fiyat Hesapla</a>
+      <a href="#features" class="block text-slate-200 py-1.5 font-medium hover:text-yellow-400">Neden Girginler?</a>
+      <a href="#faq" class="block text-slate-200 py-1.5 font-medium hover:text-red-400">Sıkça Sorulanlar</a>
+      <a href="#contact" class="block text-slate-200 py-1.5 font-medium hover:text-yellow-400">İletişim & Konum</a>
+      <div class="pt-3 border-t border-zinc-800 flex flex-col gap-2">
+        <button class="btn-open-modal w-full py-2.5 rounded-xl bg-gradient-to-r from-yellow-500 to-green-600 text-black font-extrabold text-sm">
+          Online Ön Kayıt Ol
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================
+       HERO SECTION (MYTHOS 3D CARD & VEHICLES ORBIT SHOWCASE)
+       ========================================================== -->
+  <section id="hero" class="relative pt-6 pb-20 lg:pt-12 lg:pb-28 overflow-hidden bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Copywriting -->
+        <div class="lg:col-span-5 space-y-6 text-center lg:text-left z-10">
+          
+          <!-- Top Tri-Color Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-950 border border-yellow-500/40 text-yellow-300 text-xs font-bold backdrop-blur-md">
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-ping"></span>
+            <span>MEB Onaylı Özel Eğitim Kurumu • Sincan</span>
+          </div>
+
+          <!-- Main Title with Red, Yellow, Green Gradient Fonts -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12]">
+            Hayalindeki <br>
+            <span class="text-gradient-traffic">T.C. Ehliyetine</span> <br>
+            <span class="text-gradient-yellow">İlk Seferde Ulaş!</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Girginler Sürücü Kursu ile trafikte stres yaşamayın! Son model araç filomuz, 
+            <strong class="text-yellow-400">gerçekçi direksiyon simülatörümüz</strong> ve 
+            <strong class="text-green-400">uzman usta öğreticilerimizle</strong> ehliyetinizi ilk sınavda garantileyin.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <button class="btn-open-modal w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 hover:scale-105 text-black font-black text-sm shadow-xl shadow-yellow-500/30 transition-all flex items-center justify-center gap-3">
+              <i class="fas fa-file-signature text-base text-black"></i>
+              <span>Hemen Ön Kayıt Yap</span>
+            </button>
+            <a href="#customizer" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-zinc-900/90 hover:bg-zinc-800 text-yellow-300 border border-yellow-500/40 font-bold text-sm transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-magic text-yellow-400"></i>
+              <span>Kendi Kartını 3D İncele</span>
+            </a>
+          </div>
+
+          <!-- Trust Counters in Yellow, Green, Red -->
+          <div class="pt-8 border-t border-zinc-800 grid grid-cols-3 gap-4 text-center lg:text-left">
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold font-mono text-yellow-400">15.000+</div>
+              <div class="text-xs text-slate-400 font-semibold">Mezun Sürücü</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold font-mono text-green-400">%98.4</div>
+              <div class="text-xs text-slate-400 font-semibold">İlk Sınavda Başarı</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold font-mono text-red-400">25+ Yıl</div>
+              <div class="text-xs text-slate-400 font-semibold">Sincan'da Güven</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: 3D Interactive Canvas -->
+        <div class="lg:col-span-7 relative">
+          
+          <div class="relative glass-card rounded-3xl p-3 sm:p-5 border border-yellow-500/30 shadow-2xl overflow-hidden hologram-border">
+            
+            <!-- Stage Header Info -->
+            <div class="flex items-center justify-between mb-2 px-2 z-20 relative">
+              <div class="flex items-center gap-2">
+                <span class="inline-block w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+                <span class="text-xs font-bold text-slate-200">İnteraktif 3D Sahne</span>
+                <span id="card-side-badge" class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-yellow-950 text-yellow-400 border border-yellow-500/40 font-bold">
+                  Ön Yüz (Kimlik & B Sınıfı)
+                </span>
+              </div>
+              <div class="text-xs text-slate-400 hidden sm:flex items-center gap-2 font-semibold">
+                <i class="fas fa-hand-pointer text-yellow-400 animate-bounce"></i>
+                <span>Fareyle çevir & tıkla</span>
+              </div>
+            </div>
+
+            <!-- The WebGL 3D Canvas Mount Point -->
+            <div id="hero-canvas-container" class="rounded-2xl overflow-hidden bg-black relative">
+              
+              <!-- Floating Legend Badges on Canvas (Green, Yellow, Red) -->
+              <div class="absolute top-3 left-3 pointer-events-none flex flex-col gap-2 z-10">
+                <span class="badge-pill bg-black/90 text-green-400 border-green-500/40 text-[11px] font-bold">
+                  <i class="fas fa-car text-green-400"></i> B Sınıfı Otomobil (Yeşil)
+                </span>
+                <span class="badge-pill bg-black/90 text-yellow-400 border-yellow-500/40 text-[11px] font-bold">
+                  <i class="fas fa-truck text-yellow-400"></i> C/CE Kamyon & Tır (Sarı)
+                </span>
+                <span class="badge-pill bg-black/90 text-emerald-400 border-emerald-500/40 text-[11px] font-bold">
+                  <i class="fas fa-bus text-emerald-400"></i> D Sınıfı Otobüs (Yeşil)
+                </span>
+                <span class="badge-pill bg-black/90 text-red-400 border-red-500/40 text-[11px] font-bold">
+                  <i class="fas fa-motorcycle text-red-400"></i> A Sınıfı Motor (Kırmızı)
+                </span>
+              </div>
+
+              <div class="absolute bottom-3 right-3 pointer-events-none z-10 hidden sm:block">
+                <span class="badge-pill bg-black/90 text-yellow-300 border-yellow-500/30 text-[10px] font-semibold">
+                  <i class="fas fa-sync-alt text-yellow-400 animate-spin"></i> Araçlar T.C. Ehliyet Etrafında Yörüngede
+                </span>
+              </div>
+            </div>
+
+            <!-- Interactive Stage Controls Bottom Bar -->
+            <div class="mt-3 pt-3 border-t border-zinc-800 flex flex-wrap items-center justify-between gap-3 text-xs z-20 relative">
+              <div class="flex items-center gap-2">
+                <button id="btn-flip-card" class="px-3.5 py-1.5 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold flex items-center gap-1.5 transition-all">
+                  <i class="fas fa-sync-alt"></i>
+                  <span>Kartı Çevir (Ön / Arka)</span>
+                </button>
+                <button id="btn-toggle-orbit" class="px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-slate-300 border border-zinc-700 font-semibold flex items-center gap-1.5 transition-all">
+                  <i class="fas fa-pause text-yellow-400"></i>
+                  <span>Duraklat</span>
+                </button>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span class="text-slate-400 font-semibold">Yörünge Hızı:</span>
+                <input id="orbit-speed-slider" type="range" min="0.2" max="2.5" step="0.1" value="1.0" class="w-24 cursor-pointer">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Feature floating pills around card -->
+          <div class="hidden sm:flex items-center gap-2 absolute -bottom-6 -left-4 glass-card px-3.5 py-2 rounded-xl text-xs font-bold text-green-400 border border-green-500/40 shadow-lg animate-float">
+            <i class="fas fa-shield-alt text-base text-green-400"></i>
+            <span>%98.4 İlk Sınavda Başarı</span>
+          </div>
+
+          <div class="hidden sm:flex items-center gap-2 absolute -top-4 -right-2 glass-card px-3.5 py-2 rounded-xl text-xs font-bold text-yellow-400 border border-yellow-500/40 shadow-lg animate-float-delayed">
+            <i class="fas fa-vr-cardboard text-base text-yellow-400"></i>
+            <span>3 Ekranlı Simülatör</span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SECTION: 3D CARD PERSONALIZATION STUDIO
+       ========================================================== -->
+  <section id="customizer" class="py-16 bg-[#050505] border-y border-zinc-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest font-bold">Kişiselleştirilmiş 3D Deneyim</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold mt-1 text-white">
+          Kendi T.C. Ehliyetini <span class="text-gradient-traffic">Oluştur ve İncele</span>
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Adınızı, soyadınızı ve hedeflediğiniz sınıfı girin; 3D T.C. Sürücü Belgeniz gerçek zamanlı olarak güncellensin.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto glass-card p-6 sm:p-8 rounded-3xl border border-yellow-500/40 shadow-2xl">
+        <form id="customizer-form" class="grid grid-cols-1 sm:grid-cols-3 gap-4" onsubmit="return false;">
+          
+          <div>
+            <label class="block text-xs font-bold text-yellow-400 mb-1.5">
+              <i class="fas fa-user text-yellow-400 mr-1"></i> Adınız
+            </label>
+            <input type="text" id="custom-name" value="ÖMER FARUK" placeholder="Örn: AHMET"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-sm font-semibold focus:border-yellow-400 focus:outline-none focus:ring-1 focus:ring-yellow-400">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-yellow-400 mb-1.5">
+              <i class="fas fa-id-badge text-yellow-400 mr-1"></i> Soyadınız
+            </label>
+            <input type="text" id="custom-surname" value="GİRGİN" placeholder="Örn: YILMAZ"
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-sm font-semibold focus:border-yellow-400 focus:outline-none focus:ring-1 focus:ring-yellow-400">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-yellow-400 mb-1.5">
+              <i class="fas fa-traffic-light text-yellow-400 mr-1"></i> Ehliyet Sınıfı
+            </label>
+            <select id="custom-class" 
+                    class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-sm font-semibold focus:border-yellow-400 focus:outline-none focus:ring-1 focus:ring-yellow-400">
+              <option value="B" selected>B Sınıfı (Otomobil)</option>
+              <option value="A2">A2 Sınıfı (Motosiklet ≤35kW)</option>
+              <option value="A">A Sınıfı (Ağır Motosiklet)</option>
+              <option value="C">C Sınıfı (Kamyon / Çekici)</option>
+              <option value="CE">CE Sınıfı (Tır / Römorklu Kamyon)</option>
+              <option value="D">D Sınıfı (Otobüs / Minibüs)</option>
+              <option value="G">G Sınıfı (İş Makineleri / Forklift)</option>
+            </select>
+          </div>
+
+          <div class="sm:col-span-3 pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <span class="text-xs text-slate-400 flex items-center gap-1.5 font-medium">
+              <i class="fas fa-info-circle text-green-400"></i>
+              Değişiklikler yukarıdaki 3D T.C. Sürücü Belgesi üzerinde anında yansıtılmaktadır.
+            </span>
+            <button id="btn-apply-custom" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-yellow-500 to-green-600 text-black font-extrabold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fas fa-check"></i>
+              <span>3D Karta Uygula</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SECTION: EHLİYET SINIFLARI (INTERACTIVE CATALOG)
+       ========================================================== -->
+  <section id="classes" class="py-20 bg-black relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-green-400 font-mono text-xs uppercase tracking-widest font-bold">MEB Onaylı Kurs Programları</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold mt-1 text-white">
+          Tüm Araç Tiplerinde <span class="text-gradient-traffic">Uzman Ehliyet Eğitimi</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">
+          Ankara Sincan'da son model araç filosu ve geniş pistiyle tüm sürücü belgesi sınıfları tek çatı altında.
+        </p>
+
+        <!-- Category Filter Tabs in Yellow, Green, Red -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
+          <button class="category-tab-btn active px-4 py-2 rounded-xl text-xs font-bold bg-yellow-500 text-black border border-yellow-400 transition-all" data-filter="all">
+            Tüm Sınıflar
+          </button>
+          <button class="category-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-900 text-green-400 border border-zinc-800 hover:border-green-500 transition-all" data-filter="car">
+            <i class="fas fa-car mr-1 text-green-400"></i> Otomobil (B)
+          </button>
+          <button class="category-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-900 text-red-400 border border-zinc-800 hover:border-red-500 transition-all" data-filter="moto">
+            <i class="fas fa-motorcycle mr-1 text-red-400"></i> Motosiklet (A / A2 / A1)
+          </button>
+          <button class="category-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-900 text-yellow-400 border border-zinc-800 hover:border-yellow-500 transition-all" data-filter="heavy">
+            <i class="fas fa-truck mr-1 text-yellow-400"></i> Kamyon & Tır (C / CE)
+          </button>
+          <button class="category-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-900 text-emerald-400 border border-zinc-800 hover:border-emerald-500 transition-all" data-filter="bus">
+            <i class="fas fa-bus mr-1 text-emerald-400"></i> Otobüs (D)
+          </button>
+          <button class="category-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-900 text-yellow-400 border border-zinc-800 hover:border-yellow-500 transition-all" data-filter="machinery">
+            <i class="fas fa-hard-hat mr-1 text-yellow-400"></i> İş Makineleri (G)
+          </button>
+        </div>
+      </div>
+
+      <!-- Classes Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 1. B Sınıfı Otomobil (Manuel) - Green Tone -->
+        <div class="license-card-item glass-card glass-card-green p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between border-green-500/30" data-category="car">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="class-tag px-3 py-1 rounded-xl bg-green-950 text-green-400 border border-green-500/40 text-sm font-black">
+                B SINIFI (MANUEL)
+              </span>
+              <span class="text-xs text-slate-400 font-semibold"><i class="fas fa-user-check text-green-400 mr-1"></i> Yaş: 18+</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Otomobil & Kamyonet</h3>
+            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+              Hem manuel hem otomatik vites araçları kullanma yetkisi sağlar. Son model donanımlı araçlarımızla sınav güzergahında birebir eğitim.
+            </p>
+            <ul class="text-xs text-slate-400 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> 14 Saat Birebir Direksiyon Dersi</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> 3 Ekranlı Simülatör Hazırlığı</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Bay & Bayan Usta Öğretici Seçimi</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Paralel Park & L-Park Garantisi</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-slate-400 block font-semibold">Kurs Ücreti:</span>
+              <span class="text-base font-black font-mono text-green-400">14.500 ₺</span>
+            </div>
+            <button class="btn-open-modal px-4 py-2 rounded-xl bg-green-600 hover:bg-green-500 text-black font-extrabold text-xs transition-colors">
+              Ön Kayıt Yap
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. B Sınıfı Otomobil (Otomatik) - Green Tone -->
+        <div class="license-card-item glass-card glass-card-green p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between border-green-500/30" data-category="car">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="class-tag px-3 py-1 rounded-xl bg-green-950 text-green-400 border border-green-500/40 text-sm font-black">
+                B SINIFI (OTOMATİK)
+              </span>
+              <span class="text-xs text-slate-400 font-semibold"><i class="fas fa-user-check text-green-400 mr-1"></i> Yaş: 18+</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Otomatik Vites Otomobil</h3>
+            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+              Debriyaj ve stop etme korkusu olmadan kolay ve konforlu eğitim. Otomatik vitesli tüm araçları rahatlıkla kullanın.
+            </p>
+            <ul class="text-xs text-slate-400 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Stop Etme Endişesi Yok</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Yokuş Kalkış Desteği & Kolay Park</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Klimalı Yeni Nesil Otomatik Araçlar</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> %99 İlk Sınav Başarı Oranı</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-slate-400 block font-semibold">Kurs Ücreti:</span>
+              <span class="text-base font-black font-mono text-green-400">14.500 ₺</span>
+            </div>
+            <button class="btn-open-modal px-4 py-2 rounded-xl bg-green-600 hover:bg-green-500 text-black font-extrabold text-xs transition-colors">
+              Ön Kayıt Yap
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. A2 Sınıfı Motosiklet - Yellow & Red Tone -->
+        <div class="license-card-item glass-card p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between border-yellow-500/30" data-category="moto">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="class-tag px-3 py-1 rounded-xl bg-yellow-950 text-yellow-400 border border-yellow-500/40 text-sm font-black">
+                A2 SINIFI MOTOSİKLET
+              </span>
+              <span class="text-xs text-slate-400 font-semibold"><i class="fas fa-user-check text-yellow-400 mr-1"></i> Yaş: 18+</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">35 kW'a Kadar Motosiklet</h3>
+            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+              500cc ve 35 kW güce kadar tüm orta sınıf scooter, naked ve touring motosikletleri kullanma yetkisi.
+            </p>
+            <ul class="text-xs text-slate-400 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-yellow-400"></i> Kapalı Pistte Güvenli Slalom Eğitimi</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-yellow-400"></i> Kask, Mont, Eldiven & Korumalık Dahil</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-yellow-400"></i> B Sınıfı Olanlara Teori Sınavı Muafiyeti</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-yellow-400"></i> Denge ve Acil Frenleme Teknikleri</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-slate-400 block font-semibold">Kurs Ücreti:</span>
+              <span class="text-base font-black font-mono text-yellow-400">11.000 ₺</span>
+            </div>
+            <button class="btn-open-modal px-4 py-2 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs transition-colors">
+              Ön Kayıt Yap
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. A Sınıfı Motosiklet - Red Tone -->
+        <div class="license-card-item glass-card glass-card-red p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between border-red-500/30" data-category="moto">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="class-tag px-3 py-1 rounded-xl bg-red-950 text-red-400 border border-red-500/40 text-sm font-black">
+                A SINIFI (AĞIR MOTOR)
+              </span>
+              <span class="text-xs text-slate-400 font-semibold"><i class="fas fa-user-check text-red-400 mr-1"></i> Yaş: 24+</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Güç Sınırsız Motosiklet</h3>
+            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+              600cc, 1000cc ve üzeri tüm yüksek hacimli racing, chopper ve macera motorlarını kapsayan ehliyet.
+            </p>
+            <ul class="text-xs text-slate-400 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-red-400"></i> İleri Sürüş Eğitmeni Eşliğinde</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-red-400"></i> Yüksek Hızda Viraj & Kontra Eğitimi</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-red-400"></i> Trafikte Güvenli Konumlanma</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-slate-400 block font-semibold">Kurs Ücreti:</span>
+              <span class="text-base font-black font-mono text-red-400">13.500 ₺</span>
+            </div>
+            <button class="btn-open-modal px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white font-extrabold text-xs transition-colors">
+              Ön Kayıt Yap
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. C & CE Sınıfı Kamyon ve Tır - Yellow Tone -->
+        <div class="license-card-item glass-card p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between border-yellow-500/30" data-category="heavy">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="class-tag px-3 py-1 rounded-xl bg-yellow-950 text-yellow-400 border border-yellow-500/40 text-sm font-black">
+                C & CE (KAMYON / TIR)
+              </span>
+              <span class="text-xs text-slate-400 font-semibold"><i class="fas fa-user-check text-yellow-400 mr-1"></i> Yaş: 21+</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Ağır Vasıta & Çekici</h3>
+            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+              Lojistik, nakliye ve yurt dışı taşımacılık kariyeri için profesyonel ağır vasıta eğitimi.
+            </p>
+            <ul class="text-xs text-slate-400 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-yellow-400"></i> Römorklu Geri Manevra & Yanaşma</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-yellow-400"></i> Havalı Fren & Retarder Eğitimi</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-yellow-400"></i> SRC ve Psikoteknik Yönlendirme</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-slate-400 block font-semibold">Kurs Ücreti:</span>
+              <span class="text-base font-black font-mono text-yellow-400">18.500 ₺</span>
+            </div>
+            <button class="btn-open-modal px-4 py-2 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold text-xs transition-colors">
+              Ön Kayıt Yap
+            </button>
+          </div>
+        </div>
+
+        <!-- 6. D Sınıfı Otobüs - Green Tone -->
+        <div class="license-card-item glass-card glass-card-green p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between border-green-500/30" data-category="bus">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="class-tag px-3 py-1 rounded-xl bg-green-950 text-green-400 border border-green-500/40 text-sm font-black">
+                D SINIFI OTOBÜS
+              </span>
+              <span class="text-xs text-slate-400 font-semibold"><i class="fas fa-user-check text-green-400 mr-1"></i> Yaş: 24+</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Otobüs & Minibüs</h3>
+            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+              Şehir içi ve şehirler arası yolcu ve servis taşımacılığı için geçerli D sınıfı sürücü belgesi eğitimi.
+            </p>
+            <ul class="text-xs text-slate-400 space-y-2 mb-6">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Yolcu Konforu & Güvenli Sürüş</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Dar Alanlarda Hassas Manevra</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> EGO / Servis Alımlarına Uygun</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-slate-400 block font-semibold">Kurs Ücreti:</span>
+              <span class="text-base font-black font-mono text-green-400">17.500 ₺</span>
+            </div>
+            <button class="btn-open-modal px-4 py-2 rounded-xl bg-green-600 hover:bg-green-500 text-black font-extrabold text-xs transition-colors">
+              Ön Kayıt Yap
+            </button>
+          </div>
+        </div>
+
+        <!-- 7. G Sınıfı İş Makineleri Operatörlük -->
+        <div class="license-card-item glass-card p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between md:col-span-2 lg:col-span-3 border-yellow-500/40" data-category="machinery">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div class="md:col-span-2">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="class-tag px-3 py-1 rounded-xl bg-yellow-950 text-yellow-400 border border-yellow-500/50 text-sm font-black">
+                  G SINIFI OPERATÖRLÜK BELGESİ
+                </span>
+                <span class="text-xs text-slate-400 font-semibold"><i class="fas fa-user-check text-yellow-400 mr-1"></i> Yaş: 18+</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">Forklift, Beko Loder, Ekskavatör Operatörlüğü</h3>
+              <p class="text-xs sm:text-sm text-slate-300 mb-4 leading-relaxed">
+                Genç Girginler bünyesinde MEB onaylı iş makineleri operatörlük sertifikası alarak sanayi, depo ve inşaat sektöründe aranan operatör olun.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs text-slate-300 font-semibold">
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-700 text-yellow-300">✓ Forklift Operatörlüğü</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-700 text-green-300">✓ Kazıcı-Yükleyici (Beko Loder)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-700 text-yellow-300">✓ Ekskavatör</span>
+                <span class="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-700 text-red-300">✓ Vinç (Mobil & Kule)</span>
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-black border border-yellow-500/30 text-center">
+              <span class="text-xs text-slate-400 font-semibold">Operatörlük Kurs Ücreti:</span>
+              <span class="text-2xl font-black font-mono text-yellow-400 my-1">12.500 ₺</span>
+              <span class="text-[11px] text-green-400 mb-4 font-bold">MEB Uygulama Sınavı Dahil</span>
+              <button class="btn-open-modal w-full py-2.5 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black font-black text-xs transition-colors">
+                Operatörlük Kaydı Yap
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SECTION: FİYAT & MASRAF HESAPLAYICI
+       ========================================================== -->
+  <section id="calculator" class="py-20 bg-[#060606] border-t border-zinc-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column -->
+        <div class="lg:col-span-5 space-y-5">
+          <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest font-bold">Şeffaf Maliyet Politikası</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+            Sürpriz Masraf Yok! <br>
+            <span class="text-gradient-traffic">Ehliyet Masrafını Hesapla</span>
+          </h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Girginler Sürücü Kursu'nda gizli ücretler bulunmaz. 
+            Kurs ücretinden MEB sınav harçlarına ve vergi dairesi harç puluna kadar tüm kalemleri şeffafça hesaplayın.
+          </p>
+
+          <div class="space-y-3 pt-3">
+            <div class="flex items-center gap-3 p-3.5 rounded-xl bg-zinc-950 border border-yellow-500/30">
+              <i class="fas fa-credit-card text-yellow-400 text-lg"></i>
+              <div class="text-xs">
+                <span class="font-bold text-white block">Kredi Kartına 12 Taksit</span>
+                <span class="text-slate-400">Tüm banka kartlarına taksit imkanı.</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-3.5 rounded-xl bg-zinc-950 border border-green-500/30">
+              <i class="fas fa-handshake text-green-400 text-lg"></i>
+              <div class="text-xs">
+                <span class="font-bold text-white block">Elden Taksit & Senet Kolaylığı</span>
+                <span class="text-slate-400">Öğrenci ve çalışan adaylarımız için esnek elden ödeme planı.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Calculator Card -->
+        <div class="lg:col-span-7">
+          <div class="glass-card p-6 sm:p-8 rounded-3xl border border-yellow-500/40 shadow-2xl">
+            
+            <h3 class="text-lg font-bold text-white mb-4 flex items-center justify-between">
+              <span>Hesaplama Formu</span>
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-yellow-950 text-yellow-400 border border-yellow-500/40 font-bold">2024 MEB Tarifesi</span>
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+              <div>
+                <label class="block text-xs font-bold text-yellow-400 mb-1">Ehliyet Sınıfı</label>
+                <select id="calc-class" class="w-full px-3 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-xs font-semibold focus:border-yellow-400 focus:outline-none">
+                  <option value="B-MANUAL">B Sınıfı Otomobil (Manuel)</option>
+                  <option value="B-AUTO">B Sınıfı Otomobil (Otomatik)</option>
+                  <option value="A2">A2 Sınıfı Motosiklet</option>
+                  <option value="A">A Sınıfı Ağır Motor</option>
+                  <option value="C">C Sınıfı Kamyon</option>
+                  <option value="CE">CE Sınıfı Tır</option>
+                  <option value="D">D Sınıfı Otobüs</option>
+                  <option value="G">G Sınıfı Forklift / İş Makinesi</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-yellow-400 mb-1">Mevcut Ehliyetiniz?</label>
+                <select id="calc-exp" class="w-full px-3 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-xs font-semibold focus:border-yellow-400 focus:outline-none">
+                  <option value="no">Yok (İlk Kez Alıyorum)</option>
+                  <option value="yes">Var (Sınıf Yükseltme / Fark)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-yellow-400 mb-1">Ödeme Planı</label>
+                <select id="calc-installment" class="w-full px-3 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-xs font-semibold focus:border-yellow-400 focus:outline-none">
+                  <option value="1">Tek Çekim / Nakit</option>
+                  <option value="3">3 Taksit</option>
+                  <option value="6">6 Taksit</option>
+                  <option value="12">12 Taksit</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Cost Breakdown Table -->
+            <div class="space-y-2.5 p-4 rounded-2xl bg-black border border-zinc-800 text-xs mb-6">
+              
+              <div class="flex justify-between items-center text-slate-300">
+                <span>1. Kurs Eğitim Ücreti (KDV Dahil):</span>
+                <span id="price-course" class="font-bold text-white font-mono">14.500 ₺</span>
+              </div>
+
+              <div class="flex justify-between items-center text-slate-300">
+                <span>2. MEB E-Sınav (Teorik) Harcı:</span>
+                <span id="price-theory" class="font-bold text-white font-mono">750 ₺</span>
+              </div>
+
+              <div class="flex justify-between items-center text-slate-300">
+                <span>3. MEB Direksiyon Uygulama Sınav Harcı:</span>
+                <span id="price-driving" class="font-bold text-white font-mono">1.250 ₺</span>
+              </div>
+
+              <div class="flex justify-between items-center text-slate-300">
+                <span>4. Nüfus & Harç Pulu (Devlet Harcı):</span>
+                <span id="price-government" class="font-bold text-white font-mono">5.165 ₺</span>
+              </div>
+
+              <div class="pt-3 mt-2 border-t border-zinc-800 flex justify-between items-center text-sm">
+                <span class="font-extrabold text-white">Toplam Tahmini Masraf:</span>
+                <span id="price-total" class="font-black text-xl text-yellow-400 font-mono">21.665 ₺</span>
+              </div>
+
+              <div class="flex justify-between items-center text-xs text-green-400 pt-1 font-bold">
+                <span id="installment-label">12 Taksit / Aylık:</span>
+                <span id="price-monthly" class="font-extrabold text-base font-mono">1.805 ₺</span>
+              </div>
+
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-3">
+              <button class="btn-open-modal w-full sm:flex-1 py-3 rounded-xl bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 text-black font-black text-xs shadow-lg shadow-yellow-500/20 transition-all text-center">
+                Bu Fiyatla Ön Kayıt Yaptır
+              </button>
+              <a href="https://wa.me/905059090955?text=Merhaba,%20sitenizdeki%20fiyat%20hesaplayıcıdan%20bilgi%20almak%20istiyorum." 
+                 target="_blank" 
+                 class="w-full sm:w-auto px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-green-400 font-bold text-xs border border-green-500/30 flex items-center justify-center gap-2">
+                <i class="fab fa-whatsapp text-green-400"></i> WhatsApp'tan Sor
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SECTION: EHLİYET UYGUNLUK SİHİRBAZI (WIZARD)
+       ========================================================== -->
+  <section class="py-16 bg-black relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="glass-card p-6 sm:p-10 rounded-3xl border border-yellow-500/30">
+        <div class="text-center mb-6">
+          <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest font-bold">1 Dakikalık Hızlı Kontrol</span>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+            Hangi Ehliyeti Alabilirim? <span class="text-gradient-traffic">Hemen Test Edin</span>
+          </h3>
+          <p class="text-slate-400 text-xs sm:text-sm mt-1">
+            Yaşınızı ve kullanmak istediğiniz aracı seçin, mevzuata uygunluğunuzu hemen öğrenin.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          <div>
+            <label class="block text-xs font-bold text-yellow-400 mb-1.5">Mevcut Yaşınız:</label>
+            <input type="number" id="wiz-age" min="15" max="75" value="18" 
+                   class="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-sm font-semibold focus:border-yellow-400 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-yellow-400 mb-1.5">Hedeflediğiniz Araç:</label>
+            <select id="wiz-type" class="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-sm font-semibold focus:border-yellow-400 focus:outline-none">
+              <option value="car">Otomobil (B Sınıfı - Manuel / Otomatik)</option>
+              <option value="moto_light">Hafif Motosiklet (A1 Sınıfı ≤125cc)</option>
+              <option value="truck">Kamyon / Çekici (C Sınıfı)</option>
+              <option value="bus">Otobüs / Minibüs (D Sınıfı)</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="btn-wiz-check" class="w-full py-3 rounded-xl bg-gradient-to-r from-yellow-500 to-green-600 text-black font-black text-xs transition-colors flex items-center justify-center gap-2">
+          <i class="fas fa-search"></i>
+          <span>Uygunluğumu Kontrol Et</span>
+        </button>
+
+        <div id="wiz-result" class="hidden mt-6"></div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SECTION: NEDEN GİRGİNLER SÜRÜCÜ KURSU?
+       ========================================================== -->
+  <section id="features" class="py-20 bg-[#060606] border-t border-zinc-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest font-bold">Ayrıcalıklı Eğitim Deneyimi</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">
+          Neden <span class="text-gradient-traffic">Genç Girginler Sürücü Kursu?</span>
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">
+          Trafikte ömür boyu güvenle ve panik yapmadan araç kullanabilmeniz için en modern altyapıyı sunuyoruz.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Feature 1 - Yellow -->
+        <div class="glass-card p-6 rounded-3xl border border-yellow-500/20 hover:border-yellow-500/50 transition-all group">
+          <div class="w-12 h-12 rounded-2xl bg-yellow-950 border border-yellow-500/40 flex items-center justify-center text-yellow-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-vr-cardboard"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">3 Ekranlı Direksiyon Simülatörü</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Akan trafiğe çıkmadan önce heyecanınızı yenmeniz için birebir gerçek kokpit, debriyaj hissi ve dinamik hava şartları simülasyonu.
+          </p>
+        </div>
+
+        <!-- Feature 2 - Green -->
+        <div class="glass-card p-6 rounded-3xl border border-green-500/20 hover:border-green-500/50 transition-all group">
+          <div class="w-12 h-12 rounded-2xl bg-green-950 border border-green-500/40 flex items-center justify-center text-green-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-user-friends"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Bay & Bayan Usta Öğretici Seçeneği</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Sabırlı, pedagojik formasyona sahip uzman eğitmen kadromuzla birebir direksiyon derslerinde konforlu ve stressiz öğrenme.
+          </p>
+        </div>
+
+        <!-- Feature 3 - Red -->
+        <div class="glass-card p-6 rounded-3xl border border-red-500/20 hover:border-red-500/50 transition-all group">
+          <div class="w-12 h-12 rounded-2xl bg-red-950 border border-red-500/40 flex items-center justify-center text-red-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-car-side"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Son Model Çift Pedallı Filo</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Tüm eğitim araçlarımız klimalı, bakımlı ve MEB standartlarında çift debriyaj ve fren güvenlik donanımlarına sahiptir.
+          </p>
+        </div>
+
+        <!-- Feature 4 - Green -->
+        <div class="glass-card p-6 rounded-3xl border border-green-500/20 hover:border-green-500/50 transition-all group">
+          <div class="w-12 h-12 rounded-2xl bg-green-950 border border-green-500/40 flex items-center justify-center text-green-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Akıllı Derslik & E-Sınav Portalı</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Klimalı projeksiyonlu dersliklerimizde MEB e-sınav çıkmış soruları ve cep telefonunuzdan 7/24 çözebileceğiniz deneme sistemi.
+          </p>
+        </div>
+
+        <!-- Feature 5 - Yellow -->
+        <div class="glass-card p-6 rounded-3xl border border-yellow-500/20 hover:border-yellow-500/50 transition-all group">
+          <div class="w-12 h-12 rounded-2xl bg-yellow-950 border border-yellow-500/40 flex items-center justify-center text-yellow-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Birebir Sınav Parkurunda Provalar</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Sincan MEB resmi sınav güzergahında paralel park, L park, yokuş kalkış ve ani fren noktalarında eksiksiz sınav simülasyonları.
+          </p>
+        </div>
+
+        <!-- Feature 6 - Red -->
+        <div class="glass-card p-6 rounded-3xl border border-red-500/20 hover:border-red-500/50 transition-all group">
+          <div class="w-12 h-12 rounded-2xl bg-red-950 border border-red-500/40 flex items-center justify-center text-red-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+            <i class="fas fa-percentage"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">12 Taksit & Senet Kolaylığı</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Bütçenizi sarsmayan ödeme kolaylıkları, kredi kartına taksit ve öğrenci dostu elden ödeme planları.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SECTION: EĞİTİM AŞAMALARI
+       ========================================================== -->
+  <section class="py-20 bg-black relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-green-400 font-mono text-xs uppercase tracking-widest font-bold">Kolay ve Net Süreç</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">
+          6 Adımda <span class="text-gradient-traffic">Ehliyetine Kavuş!</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="glass-card p-6 rounded-3xl border border-zinc-800 relative">
+          <span class="text-3xl font-black font-mono text-yellow-400/40 absolute top-5 right-6">01</span>
+          <div class="w-10 h-10 rounded-xl bg-yellow-950 text-yellow-400 flex items-center justify-center font-bold mb-4">
+            <i class="fas fa-file-invoice"></i>
+          </div>
+          <h4 class="font-bold text-white text-base mb-1">Evrak Teslimi & Kayıt</h4>
+          <p class="text-xs text-slate-400">Kimlik, 2 biyometrik fotoğraf, diploma fotokopisi ve sağlık raporunuzla 5 dakikada kaydınızı yapıyoruz.</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl border border-zinc-800 relative">
+          <span class="text-3xl font-black font-mono text-green-400/40 absolute top-5 right-6">02</span>
+          <div class="w-10 h-10 rounded-xl bg-green-950 text-green-400 flex items-center justify-center font-bold mb-4">
+            <i class="fas fa-book-reader"></i>
+          </div>
+          <h4 class="font-bold text-white text-base mb-1">E-Sınav Teorik Eğitimi</h4>
+          <p class="text-xs text-slate-400">Trafik, ilk yardım ve motor dersleri. Online soru bankamızla tek seferde e-sınavı geçin.</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl border border-zinc-800 relative">
+          <span class="text-3xl font-black font-mono text-yellow-400/40 absolute top-5 right-6">03</span>
+          <div class="w-10 h-10 rounded-xl bg-yellow-950 text-yellow-400 flex items-center justify-center font-bold mb-4">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <h4 class="font-bold text-white text-base mb-1">Simülatör Deneyimi</h4>
+          <p class="text-xs text-slate-400">Gerçek araca binmeden önce direksiyon, vites ve pedal reflekslerinizi güvenle simülatörde geliştirin.</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl border border-zinc-800 relative">
+          <span class="text-3xl font-black font-mono text-red-400/40 absolute top-5 right-6">04</span>
+          <div class="w-10 h-10 rounded-xl bg-red-950 text-red-400 flex items-center justify-center font-bold mb-4">
+            <i class="fas fa-route"></i>
+          </div>
+          <h4 class="font-bold text-white text-base mb-1">Birebir Direksiyon Dersleri</h4>
+          <p class="text-xs text-slate-400">Özel eğitmeninizle akan trafikte ve sınav parkurunda birebir sürüş ve paralel park antrenmanları.</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl border border-zinc-800 relative">
+          <span class="text-3xl font-black font-mono text-yellow-400/40 absolute top-5 right-6">05</span>
+          <div class="w-10 h-10 rounded-xl bg-yellow-950 text-yellow-400 flex items-center justify-center font-bold mb-4">
+            <i class="fas fa-award"></i>
+          </div>
+          <h4 class="font-bold text-white text-base mb-1">MEB Direksiyon Sınavı</h4>
+          <p class="text-xs text-slate-400">Öğrendiğiniz güzergahta, alışık olduğunuz eğitim aracınızla rahat ve özgüvenle sınava girin.</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl border border-green-500/40 relative">
+          <span class="text-3xl font-black font-mono text-green-400/40 absolute top-5 right-6">06</span>
+          <div class="w-10 h-10 rounded-xl bg-green-950 text-green-400 flex items-center justify-center font-bold mb-4">
+            <i class="fas fa-id-card"></i>
+          </div>
+          <h4 class="font-bold text-white text-base mb-1">T.C. Ehliyetinizi Alın!</h4>
+          <p class="text-xs text-slate-400">Sertifikanız e-Devlet'e aktarılır. Nüfus Müdürlüğü randevunuz ile çipli yeni ehliyetiniz adresinize gelir.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SECTION: ÖĞRENCİ YORUMLARI
+       ========================================================== -->
+  <section class="py-20 bg-[#050505] border-y border-zinc-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest font-bold">Gerçek Öğrenci Deneyimleri</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">
+          Girginler Mezunları <span class="text-gradient-traffic">Ne Diyor?</span>
+        </h2>
+        <div class="flex items-center justify-center gap-1 text-yellow-400 mt-2 text-sm">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <span class="text-slate-300 font-bold text-xs ml-2">4.9 / 5.0 (420+ Google Yorumu)</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="glass-card p-6 rounded-3xl border border-green-500/20">
+          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 italic mb-4 leading-relaxed">
+            "Araba kullanmaktan çok korkuyordum. Simülatör eğitimi ve hocamızın sakin yaklaşımı sayesinde ilk sınavımda tek seferde geçtim! Sincan'da kesinlikle 1 numara."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-green-950 border border-green-500/40 flex items-center justify-center font-bold text-xs text-green-300">
+              EK
+            </div>
+            <div>
+              <h5 class="text-xs font-bold text-white">Elif Korkmaz</h5>
+              <span class="text-[10px] text-green-400 font-semibold">B Sınıfı Otomobil Mezunu</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl border border-yellow-500/20">
+          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 italic mb-4 leading-relaxed">
+            "A2 motosiklet ehliyeti için Girginler Kursu'nu seçtim. Kapalı pistteki slalom ve acil fren çalışmaları harikaydı. Koruyucu ekipmanları da eksiksiz verdiler. Teşekkürler!"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-yellow-950 border border-yellow-500/40 flex items-center justify-center font-bold text-xs text-yellow-300">
+              BT
+            </div>
+            <div>
+              <h5 class="text-xs font-bold text-white">Burak Taştan</h5>
+              <span class="text-[10px] text-yellow-400 font-semibold">A2 Motosiklet Mezunu</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card p-6 rounded-3xl border border-red-500/20">
+          <div class="flex items-center gap-1 text-yellow-400 text-xs mb-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 italic mb-4 leading-relaxed">
+            "C sınıfı kamyon ve CE tır ehliyetimi Girginler'den aldım. Ağır vasıta eğitmenleri işinde çok tecrübeli. Parkurda geri geri yanaşmayı kusursuz öğrettiler. Hemen işe başladım."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-red-950 border border-red-500/40 flex items-center justify-center font-bold text-xs text-red-300">
+              MY
+            </div>
+            <div>
+              <h5 class="text-xs font-bold text-white">Murat Yıldırım</h5>
+              <span class="text-[10px] text-red-400 font-semibold">CE Ağır Vasıta & Tır Mezunu</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SECTION: SIKÇA SORULAN SORULAR
+       ========================================================== -->
+  <section id="faq" class="py-20 bg-black relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest font-bold">Merak Edilenler</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">
+          Sıkça Sorulan <span class="text-gradient-traffic">Sorular</span>
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <div class="faq-item glass-card rounded-2xl border border-zinc-800 overflow-hidden">
+          <button class="faq-question w-full p-4 sm:p-5 text-left flex items-center justify-between text-white font-bold text-sm hover:text-yellow-400 transition-colors">
+            <span>Kayıt için hangi evraklar gereklidir?</span>
+            <i class="faq-icon fas fa-chevron-down text-yellow-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 pb-5 text-xs text-slate-300 leading-relaxed border-t border-zinc-800 pt-3">
+            Kayıt için T.C. Kimlik fotokopisi, 2 adet biyometrik fotoğraf, öğrenim belgesi (diploma veya e-Devlet öğrenci belgesi), sürücü olur sağlık raporu ve adli sicil kaydı yeterlidir.
+          </div>
+        </div>
+
+        <div class="faq-item glass-card rounded-2xl border border-zinc-800 overflow-hidden">
+          <button class="faq-question w-full p-4 sm:p-5 text-left flex items-center justify-between text-white font-bold text-sm hover:text-green-400 transition-colors">
+            <span>Otomatik vites ehliyeti ile manuel araba kullanabilir miyim?</span>
+            <i class="faq-icon fas fa-chevron-down text-green-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 pb-5 text-xs text-slate-300 leading-relaxed border-t border-zinc-800 pt-3">
+            Otomatik vites (B Otomatik) ehliyeti alan sürücüler yalnızca otomatik vites araçları kullanabilir. Manuel (B Manuel) ehliyet alan sürücüler ise hem manuel hem de otomatik araçları serbestçe kullanma hakkına sahip olur.
+          </div>
+        </div>
+
+        <div class="faq-item glass-card rounded-2xl border border-zinc-800 overflow-hidden">
+          <button class="faq-question w-full p-4 sm:p-5 text-left flex items-center justify-between text-white font-bold text-sm hover:text-yellow-400 transition-colors">
+            <span>Direksiyon ders saatlerimi çalışma veya okul saatlerime göre ayarlayabilir miyim?</span>
+            <i class="faq-icon fas fa-chevron-down text-yellow-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 pb-5 text-xs text-slate-300 leading-relaxed border-t border-zinc-800 pt-3">
+            Evet, Genç Girginler olarak ders saatlerinizi vardiyanıza, okul programınıza veya hafta sonu müsaitliğinize göre esnek şekilde planlıyoruz.
+          </div>
+        </div>
+
+        <div class="faq-item glass-card rounded-2xl border border-zinc-800 overflow-hidden">
+          <button class="faq-question w-full p-4 sm:p-5 text-left flex items-center justify-between text-white font-bold text-sm hover:text-red-400 transition-colors">
+            <span>İlk direksiyon sınavından kalırsam haklarım nelerdir?</span>
+            <i class="faq-icon fas fa-chevron-down text-red-400 text-xs transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 pb-5 text-xs text-slate-300 leading-relaxed border-t border-zinc-800 pt-3">
+            MEB yönetmeliği gereğince her adayın toplam 4 sınav hakkı bulunmaktadır. Ek telafi direksiyon dersleri ile bir sonraki sınava eksiksiz hazırlanmanız sağlanır.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SECTION: İLETİŞİM & LOKASYON
+       ========================================================== -->
+  <section id="contact" class="py-20 bg-black border-t border-zinc-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest font-bold">Bize Ulaşın</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+            Girginler Sürücü Kursu <br>
+            <span class="text-gradient-traffic">Sincan Merkez Şubemiz</span>
+          </h2>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Sincan merkezde Atatürk Mahallesi Melek Sokak'ta merkezi konumumuzdayız. Bir kahvemizi içmeye ve araç filomuzu görmeye davetlisiniz.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-red-950 border border-red-500/40 text-red-400 flex items-center justify-center shrink-0">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="text-xs">
+                <span class="font-bold text-white block text-sm">Adres:</span>
+                <span class="text-slate-300 leading-relaxed">
+                  Atatürk Mah. Melek Sokak No:12/1 (Ankara Caddesi civarı), Sincan / ANKARA
+                </span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-yellow-950 border border-yellow-500/40 text-yellow-400 flex items-center justify-center shrink-0">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="text-xs">
+                <span class="font-bold text-white block text-sm">Sabit Telefon:</span>
+                <a href="tel:03122704262" class="text-yellow-400 font-mono font-bold text-sm hover:underline">(0312) 270 42 62</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-green-950 border border-green-500/40 text-green-400 flex items-center justify-center shrink-0">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div class="text-xs">
+                <span class="font-bold text-white block text-sm">Mobil & WhatsApp:</span>
+                <a href="https://wa.me/905059090955" target="_blank" class="text-green-400 font-mono font-bold text-sm hover:underline">0505 909 09 55</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-700 text-slate-300 flex items-center justify-center shrink-0">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="text-xs">
+                <span class="font-bold text-white block text-sm">E-Posta:</span>
+                <a href="mailto:gencgirginler@hotmail.com" class="text-slate-300 hover:text-yellow-400">gencgirginler@hotmail.com</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-700 text-yellow-400 flex items-center justify-center shrink-0">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="text-xs">
+                <span class="font-bold text-white block text-sm">Çalışma Saatleri:</span>
+                <span class="text-slate-300">Pzt - Cmt: 08:30 - 19:30 | Pazar: 10:00 - 17:00</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Map & WhatsApp Banner -->
+        <div class="lg:col-span-7 flex flex-col gap-6">
+          
+          <div class="glass-card rounded-3xl p-4 border border-yellow-500/20 overflow-hidden shadow-2xl">
+            <div class="flex items-center justify-between mb-3 px-2">
+              <span class="text-xs font-bold text-white flex items-center gap-2">
+                <i class="fas fa-location-arrow text-yellow-400"></i> Sincan Kurs Konumu Haritası
+              </span>
+              <a href="https://maps.google.com/?q=Atat%C3%BCrk+Mah.+Melek+Sokak+No:12/1+Sincan+Ankara" target="_blank" 
+                 class="text-xs font-bold text-yellow-400 hover:underline">
+                Google Haritalar'da Aç <i class="fas fa-external-link-alt text-[10px] ml-1"></i>
+              </a>
+            </div>
+            
+            <div class="w-full h-64 sm:h-80 rounded-2xl overflow-hidden bg-black relative">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.4871032332155!2d32.576579876527584!3d39.96397367151608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d339396e6ec135%3A0xe962804b7863116a!2sAtat%C3%BCrk%2C%20Melek%20Sk.%20No%3A12%20D%3A1%2C%2006930%20Sincan%2FAnkara!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" 
+                class="w-full h-full border-0" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-black border border-green-500/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-green-600 text-black flex items-center justify-center text-2xl shrink-0 font-bold">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div>
+                <h4 class="font-extrabold text-white text-sm">Hemen WhatsApp'tan Bilgi Alın</h4>
+                <p class="text-xs text-slate-300">Eğitim danışmanımız müsait saatler ve kayıt evrakları için anında yanıtlar.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/905059090955?text=Merhaba,%20Girginler%20S%C3%BCr%C3%BCc%C3%BC%20Kursu%20i%C3%A7in%20bilgi%20almak%20istiyorum." 
+               target="_blank" 
+               class="px-6 py-2.5 rounded-xl bg-green-500 hover:bg-green-400 text-black font-black text-xs shrink-0 transition-colors">
+              Mesaj Gönder
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       FOOTER
+       ========================================================== -->
+  <footer class="bg-black border-t border-zinc-800 text-slate-400 text-xs py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <div class="space-y-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-yellow-500 flex items-center justify-center text-black font-extrabold text-sm">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <span class="font-black text-white text-base">GİRGİNLER SÜRÜCÜ KURSU</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Milli Eğitim Bakanlığı Özel Öğretim Kurumları Genel Müdürlüğü'ne bağlı resmi yetkili sürücü ve iş makineleri operatörlük kursu.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-yellow-400 mb-3 text-sm">Ehliyet Sınıfları</h4>
+          <ul class="space-y-1.5 text-xs text-slate-400">
+            <li><a href="#classes" class="hover:text-green-400">B Sınıfı Otomobil (Manuel / Otomatik)</a></li>
+            <li><a href="#classes" class="hover:text-red-400">A / A1 / A2 Motosiklet</a></li>
+            <li><a href="#classes" class="hover:text-yellow-400">C & CE Kamyon ve Tır</a></li>
+            <li><a href="#classes" class="hover:text-green-400">D Sınıfı Otobüs</a></li>
+            <li><a href="#classes" class="hover:text-yellow-400">G Sınıfı Forklift & İş Makineleri</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-green-400 mb-3 text-sm">Hızlı Bağlantılar</h4>
+          <ul class="space-y-1.5 text-xs text-slate-400">
+            <li><a href="#hero" class="hover:text-yellow-400">3D T.C. Ehliyet Sahnesi</a></li>
+            <li><a href="#customizer" class="hover:text-yellow-400">3D Kart Kişiselleştirme</a></li>
+            <li><a href="#calculator" class="hover:text-green-400">Masraf & Fiyat Hesaplayıcı</a></li>
+            <li><a href="#features" class="hover:text-yellow-400">Direksiyon Simülatörü</a></li>
+            <li><a href="#faq" class="hover:text-red-400">Sıkça Sorulan Sorular</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-red-400 mb-3 text-sm">İletişim</h4>
+          <p class="text-xs text-slate-400 mb-2">Atatürk Mah. Melek Sokak No:12/1 Sincan / ANKARA</p>
+          <p class="text-xs text-slate-400 mb-1">Tel: (0312) 270 42 62</p>
+          <p class="text-xs text-slate-400 mb-1">GSM: 0505 909 09 55</p>
+          <p class="text-xs text-slate-400">E-Posta: gencgirginler@hotmail.com</p>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>
+          © 2024 Özel Genç Girginler Motorlu Taşıt Sürücüleri Kursu. Tüm hakları saklıdır.
+        </div>
+        <div class="flex items-center gap-4 font-semibold">
+          <span class="text-green-500">MEB Onaylı</span>
+          <span>•</span>
+          <span class="text-yellow-500">Gizlilik & KVKK</span>
+          <span>•</span>
+          <span class="text-red-500">Sincan / Ankara</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================
+       MODAL: ONLİNE ÖN KAYIT FORMU
+       ========================================================== -->
+  <div id="reg-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+    <div class="glass-card max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-yellow-500/40 shadow-2xl relative">
+      
+      <button id="btn-close-modal" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1" aria-label="Kapat">
+        <i class="fas fa-times text-lg"></i>
+      </button>
+
+      <div id="reg-form-content">
+        <div class="mb-5">
+          <span class="badge-pill bg-yellow-950 text-yellow-300 border-yellow-500/40 text-xs mb-2 font-bold">
+            <i class="fas fa-gift text-yellow-400"></i> %10 Erken Kayıt İndirimi
+          </span>
+          <h3 class="text-2xl font-black text-white">Online Ön Kayıt Formu</h3>
+          <p class="text-xs text-slate-300 mt-1">Bilgilerinizi bırakın, eğitim danışmanımız sizi arayarak kontenjanınızı ayırsın.</p>
+        </div>
+
+        <form id="reg-form" class="space-y-3.5">
+          <div>
+            <label class="block text-xs font-bold text-yellow-400 mb-1">Adınız & Soyadınız:</label>
+            <input type="text" id="reg-fullname" required placeholder="Örn: Ahmet Yılmaz" 
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-xs font-semibold focus:border-yellow-400 focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-yellow-400 mb-1">Telefon Numaranız:</label>
+            <input type="tel" id="reg-phone" required placeholder="05XX XXX XX XX" 
+                   class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-xs font-semibold focus:border-yellow-400 focus:outline-none">
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-yellow-400 mb-1">İlgilenilen Ehliyet:</label>
+              <select id="reg-class" class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-xs font-semibold focus:border-yellow-400 focus:outline-none">
+                <option value="B Sınıfı Otomobil">B Sınıfı (Otomobil)</option>
+                <option value="A2 Sınıfı Motosiklet">A2 Motosiklet</option>
+                <option value="A Sınıfı Motosiklet">A Ağır Motor</option>
+                <option value="C Sınıfı Kamyon">C Kamyon</option>
+                <option value="CE Sınıfı Tır">CE Tır / Çekici</option>
+                <option value="D Sınıfı Otobüs">D Otobüs</option>
+                <option value="G Sınıfı Forklift">G Forklift / İş Makinesi</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-yellow-400 mb-1">Vites Tercihi:</label>
+              <select id="reg-gear" class="w-full px-3.5 py-2.5 rounded-xl bg-black border border-zinc-700 text-white text-xs font-semibold focus:border-yellow-400 focus:outline-none">
+                <option value="Manuel">Manuel Vites</option>
+                <option value="Otomatik">Otomatik Vites</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-yellow-400 mb-1">İndirim Kodu:</label>
+            <input type="text" id="reg-code" value="GIRGIN2024" 
+                   class="w-full px-3.5 py-2 rounded-xl bg-black border border-yellow-500/40 text-yellow-400 font-mono text-xs focus:border-yellow-400 focus:outline-none">
+          </div>
+
+          <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-red-600 via-yellow-500 to-green-600 hover:opacity-95 text-black font-black text-xs shadow-xl shadow-yellow-500/25 transition-all mt-4">
+            Ön Kaydımı Tamamla ve İndirimi Kilitle
+          </button>
+        </form>
+
+        <div id="reg-success" class="hidden text-center py-6 space-y-4">
+          <div class="w-16 h-16 rounded-full bg-green-950 text-green-400 border border-green-500/40 flex items-center justify-center text-3xl mx-auto animate-bounce">
+            <i class="fas fa-check"></i>
+          </div>
+          <h4 class="text-xl font-bold text-white">Tebrikler, <span id="success-name">Adayımız</span>!</h4>
+          <p class="text-xs text-slate-300 max-w-sm mx-auto leading-relaxed">
+            Ön kayıt başvurunuz ve %10 indirim hakkınız başarıyla sisteme kaydedildi. 
+            Eğitim danışmanımız en kısa sürede sizinle iletişime geçecektir.
+          </p>
+          <div class="pt-2">
+            <a id="btn-success-wa" href="#" target="_blank" 
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-green-500 hover:bg-green-400 text-black font-black text-xs">
+              <i class="fab fa-whatsapp text-sm"></i> WhatsApp'tan Hemen Yaz
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="three-scene.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
